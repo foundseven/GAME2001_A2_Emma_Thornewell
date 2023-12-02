@@ -4,8 +4,8 @@
 template <typename T>
 void LinkedList<T>::Push(int priority, const T& data)
 {
-	Mode<T>* newNode = new Node<T>(priority, data);
-	newNode->SetNextNode(head);
+	Node<T>* newNode = new Node<T>(priority, data);
+	newNode->SetNextNode(this->head);
 	SetHead(newNode);
 	SetSize(GetSize() + 1);
 }
@@ -21,4 +21,10 @@ void LinkedList<T>::Pop()
 
 		SetSize(GetSize() - 1);
 	}
+}
+
+template <typename T>
+Node<T>* LinkedList<T>::Front() const
+{
+	return GetHead();
 }
